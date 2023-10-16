@@ -12,7 +12,7 @@ export const Theme = createTheme({
       main: "#333",
     },
     darkGray: {
-      main: "#FF5733",
+      main: "#888",
     },
     modalColor: {
       main: "#454444",
@@ -22,7 +22,15 @@ export const Theme = createTheme({
     },
     whiteSlate: {
       main: alpha("#fff", 0.8),
-      // main: palette.common.white,
+    },
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
     },
   },
 });

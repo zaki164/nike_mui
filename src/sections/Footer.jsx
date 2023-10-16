@@ -2,6 +2,7 @@ import Image from "next/image";
 import { copyrightSign } from "../assets/icons";
 import { footerLogo } from "../assets/images";
 import { footerLinks, socialMedia } from "../constants";
+import { Typography } from "@mui/material";
 
 const Footer = () => {
   return (
@@ -11,10 +12,14 @@ const Footer = () => {
           <a href="/">
             <Image src={footerLogo} alt="logo" width={150} height={46} />
           </a>
-          <p className="mt-6 leading-7 info-text !text-white-400 sm:max-w-sm">
+          <Typography
+            variant="body1"
+            color={"whiteSlate.main"}
+            className="mt-6 leading-7 info-text !text-white-400 sm:max-w-sm"
+          >
             Get shoes ready for the new term at your nearest Nike store. Find
             Your perfect Size In Store. Get Rewards
-          </p>
+          </Typography>
           <div className="flex items-center gap-5 mt-6 md:mt-8">
             {socialMedia.map((icon) => (
               <div
