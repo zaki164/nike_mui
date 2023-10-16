@@ -4,6 +4,7 @@ import { shoes, statistics } from "../constants";
 import { Button, ShoeCard } from "../components";
 import { bigShoe1 } from "../assets/images";
 import { arrowRight } from "../assets/icons";
+import Image from "next/image";
 
 const Hero = () => {
   const [bigShoeImg, setBigShoeImg] = useState(bigShoe1);
@@ -46,7 +47,7 @@ const Hero = () => {
 
       {/* right section */}
       <div className="relative flex_center flex-1 bg-hero bg-cover bg-center">
-        <img src={bigShoeImg} alt="BigImgShoe" />
+        <Image src={bigShoeImg} alt="BigImgShoe" />
         <div className="absolute max-sm:top-2 max-sm:left-2 max-md:top-4 max-md:left-4 max-md:flex-col max-md:items-start md:-bottom-16 w-full flex_center gap-4 md:gap-8">
           {shoes.map((shoe, i) => (
             <ShoeCard

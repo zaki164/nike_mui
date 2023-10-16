@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { copyrightSign } from "../assets/icons";
 import { footerLogo } from "../assets/images";
 import { footerLinks, socialMedia } from "../constants";
@@ -8,7 +9,7 @@ const Footer = () => {
       <div className="flex justify-between items-start gap-16 lg:gap-20 flex-wrap max-lg:flex-col">
         <div className="flex flex-col lg:items-start">
           <a href="/">
-            <img src={footerLogo} alt="logo" width={150} height={46} />
+            <Image src={footerLogo} alt="logo" width={150} height={46} />
           </a>
           <p className="mt-6 leading-7 info-text !text-white-400 sm:max-w-sm">
             Get shoes ready for the new term at your nearest Nike store. Find
@@ -20,7 +21,7 @@ const Footer = () => {
                 className="flex justify-center items-center w-12 h-12 bg-white rounded-full cursor-pointer"
                 key={icon.alt}
               >
-                <img src={icon.src} alt={icon.alt} width={24} height={24} />
+                <Image src={icon.src} alt={icon.alt} width={24} height={24} />
               </div>
             ))}
           </div>
@@ -49,7 +50,7 @@ const Footer = () => {
 
       <div className="flex justify-between info-text !text-white-400 mt-10 md:mt-24 max-sm:flex-col max-sm:items-center max-sm:gap-6">
         <div className="flex flex-1 justify-start items-center gap-2 font-montserrat">
-          <img
+          <Image
             src={copyrightSign}
             alt="copyright sign"
             className="rounded-full w-3 h-3 md:w-5 md:h-5 bg-animation"

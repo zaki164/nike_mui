@@ -11,23 +11,27 @@ import {
   Subscribe,
   SuperQuality,
 } from "../sections";
+import { ThemeProvider } from "@mui/material";
+import { Theme } from "@/config/theme";
 
 export default function Home() {
   return (
     <GoogleOAuthProvider clientId="630251820110-g57glv47bvpqafbga0jdr1kpi9b728pj.apps.googleusercontent.com">
-      <main>
-        <div className="custom-container">
-          <NavBar />
-          <Hero />
-          <PopularProducts />
-          <SuperQuality />
-          <Services />
-          <SpecialOffer />
-          <CustomerReviews />
-          <Subscribe />
-        </div>
-        <Footer />
-      </main>
+      <ThemeProvider theme={Theme}>
+        <main>
+          <div className="custom-container">
+            <NavBar />
+            <Hero />
+            <PopularProducts />
+            <SuperQuality />
+            <Services />
+            <SpecialOffer />
+            <CustomerReviews />
+            <Subscribe />
+          </div>
+          <Footer />
+        </main>
+      </ThemeProvider>
     </GoogleOAuthProvider>
   );
 }

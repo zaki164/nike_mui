@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { shoe8 } from "../assets/images";
 import { Button } from "../components";
 
@@ -27,7 +28,7 @@ const SuperQuality = () => {
       </div>
 
       <div className="flex-1 flex justify-center items-center">
-        <img
+        <Image
           src={shoe8}
           alt="product detail"
           width={570}

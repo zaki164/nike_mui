@@ -1,9 +1,10 @@
+import Image from "next/image";
 import Star from "./Star";
 
 const PopularProductCard = ({ imgURL, name, price, rate }) => {
   return (
     <div className="flex flex-1 flex-col w-full max-sm:w-full items-center">
-      <img
+      <Image
         src={imgURL}
         alt={name}
         className="w-[230px] h-[230px] md:w-[282px] md:h-[282px]"

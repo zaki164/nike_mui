@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const Button = ({
@@ -27,7 +28,7 @@ const Button = ({
     >
       {label}{" "}
       {iconURL && (
-        <img
+        <Image
           src={iconURL}
           alt="button"
           className="bg-white rounded-full w-5 h-5"

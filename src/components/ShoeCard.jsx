@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const ShoeCard = ({ shoe, bigShoeImg, changeBigShoeImage }) => {
   return (
     <div
@@ -6,7 +8,7 @@ const ShoeCard = ({ shoe, bigShoeImg, changeBigShoeImage }) => {
       }`}
       onClick={() => changeBigShoeImage(shoe?.bigShoe)}
     >
-      <img
+      <Image
         src={shoe?.thumbnail}
         alt="shoe thumbnail"
         className="object-contain max-sm:w-[40px] max-sm:h-[40px] max-md:w-[80px] max-md:h-[80px] md:max-w-[120px] md:max-h-[100px]"

@@ -9,6 +9,7 @@ import Cookies from "js-cookie";
 import ThemeButton from "./ThemeButton";
 import HamburgerButton from "./HamburgerButton";
 import Link from "next/link";
+import Image from "next/image";
 // import FacebookLogin from "@greatsumini/react-facebook-login";
 
 const NavBar = () => {
@@ -76,7 +77,7 @@ const NavBar = () => {
   return (
     <header className="absolute top-0 left-0 flex_between py-6 w-full z-10">
       <Link href="/">
-        <img src={headerLogo} alt="logo" />
+        <Image src={headerLogo} alt="logo" />
       </Link>
       <nav className="md:flex_between md:flex-1 hidden">
         <ul className="flex_center md:gap-6 lg:gap-20 flex-1 text-base lg:text-lg">

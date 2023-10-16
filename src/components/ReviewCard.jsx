@@ -1,9 +1,10 @@
+import Image from "next/image";
 import Star from "./Star";
 
 const ReviewCard = ({ imgURL, customerName, rating, feedback }) => {
   return (
     <div className="flex justify-center items-center flex-col">
-      <img
+      <Image
         src={imgURL}
         alt="customer"
         className="rounded-full object-cover w-[90px] h-[90px] md:w-[120px] md:h-[120px]"

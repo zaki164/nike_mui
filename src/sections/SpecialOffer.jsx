@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { arrowRight } from "../assets/icons";
 import { offer } from "../assets/images";
 import { Button } from "../components";
@@ -6,7 +7,7 @@ const SpecialOffer = () => {
   return (
     <section className="flex justify-between items-center max-xl:flex-col-reverse gap-10 section_padding">
       <div className="flex-1">
-        <img
+        <Image
           src={offer}
           alt="Shoe Promotion"
           width={773}
