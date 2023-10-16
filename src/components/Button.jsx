@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
 const Button = ({
   label,
@@ -11,7 +11,7 @@ const Button = ({
   href,
   onClick,
 }) => {
-  const route = useNavigate();
+  const route = useRouter();
   const handleClick = () => {
     onClick ? onClick() : href === "/" ? window.location.reload() : route(href);
   };

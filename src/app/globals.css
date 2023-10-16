@@ -1,4 +1,95 @@
-:root {
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth font-palanquin;
+  }
+  html.dark {
+    @apply text-white bg-dark-background;
+  }
+  input::placeholder {
+    @apply text-dark-slate-gray;
+  }
+  ::selection {
+    @apply bg-coral-red text-select-gray;
+  }
+  ::-webkit-scrollbar {
+    @apply w-[11px];
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-coral-red rounded-[5px];
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-coral-red/90 dark:bg-coral-red/60;
+  }
+  ::-webkit-scrollbar-corner {
+    @apply bg-transparent;
+  }
+}
+
+@layer components {
+  .bg-animation {
+    @apply animate-colorAnimation;
+    background: linear-gradient(-45deg, #ff6452, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 200% auto;
+  }
+  .text-animation {
+    @apply animate-colorAnimation;
+    background: linear-gradient(-45deg, #ff6452, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .text-animation::selection {
+    -webkit-text-fill-color: #333;
+  }
+}
+
+@layer utilities {
+  .custom-container {
+    @apply w-[90%] sm:w-[600px] md:w-[740px] lg:w-[1000px] xl:w-[1200px] 2xl:w-[78%] relative m-auto;
+  }
+  .flex_center {
+    @apply flex justify-center items-center;
+  }
+  .flex_between {
+    @apply flex justify-between items-center;
+  }
+  .text-3xl-4xl {
+    @apply text-3xl md:text-4xl;
+  }
+  .text-2xl-3xl {
+    @apply text-2xl md:text-3xl;
+  }
+  .text-xl-2xl {
+    @apply text-xl md:text-2xl;
+  }
+  .text-l-xl {
+    @apply text-lg md:text-xl;
+  }
+  .text-base-l {
+    @apply text-base md:text-lg;
+  }
+  .text-sm-base {
+    @apply text-sm md:text-base;
+  }
+  .info-text {
+    @apply text-sm-base font-montserrat text-slate-gray dark:text-dark-slate-gray;
+  }
+  .section_padding {
+    @apply py-8 md:py-12;
+  }
+}
+
+/* :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -104,4 +195,4 @@ a {
   html {
     color-scheme: dark;
   }
-}
+} */
