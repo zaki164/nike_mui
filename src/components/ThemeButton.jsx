@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { themeOption } from "../constants";
-import { BsFillSunFill, BsSun } from "react-icons/bs";
-import { WiMoonAltWaxingCrescent4 } from "react-icons/wi";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
 
 const ThemeButton = () => {
   const [themeOptionOpen, setThemeOptionOpen] = useState(false);
@@ -80,7 +79,7 @@ const ThemeButton = () => {
         onClick={handleThemeIconClick}
         ref={themeRef}
       >
-        <WiMoonAltWaxingCrescent4 className="w-7 h-7" />
+        <Brightness4Icon className="w-7 h-7" />
       </span>
       <div
         className={`absolute transition duration-300 z-20 ${

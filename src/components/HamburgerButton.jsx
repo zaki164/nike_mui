@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { RxHamburgerMenu } from "react-icons/rx";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const HamburgerButton = ({ navOpen, setnavOpen }) => {
   const NavIconRef = useRef();
@@ -30,7 +30,7 @@ const HamburgerButton = ({ navOpen, setnavOpen }) => {
       onClick={handleNavIconClick}
       ref={NavIconRef}
     >
-      <RxHamburgerMenu className="w-7 h-7 sm:w-9 sm:h-9" />
+      <MenuIcon className="w-7 h-7 sm:w-9 sm:h-9" />
     </span>
   );
 };
