@@ -10,6 +10,17 @@ import ThemeButton from "./ThemeButton";
 import HamburgerButton from "./HamburgerButton";
 import Link from "next/link";
 import Image from "next/image";
+import {
+  AppBar,
+  Box,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Menu,
+  Stack,
+  Toolbar,
+} from "@mui/material";
 // import FacebookLogin from "@greatsumini/react-facebook-login";
 
 const NavBar = () => {
@@ -75,35 +86,83 @@ const NavBar = () => {
   }, []);
 
   return (
-    <header className="absolute top-0 left-0 flex_between py-6 w-full z-10">
+    <AppBar
+      elevation={0}
+      sx={{
+        bgcolor: "transparent",
+        position: "absolute",
+        top: 0,
+        left: 0,
+        py: 6,
+        flexDirection: "row",
+      }}
+      className="flex_between"
+    >
       <Link href="/">
         <Image src={headerLogo} alt="logo" />
       </Link>
-      <nav className="md:flex_between md:flex-1 hidden">
-        <ul className="flex_center md:gap-6 lg:gap-20 flex-1 text-base lg:text-lg">
+      <Box
+        component="nav"
+        hidden
+        sx={(theme) => ({
+          [theme.breakpoints.up("md")]: {
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexGrow: 1,
+          },
+        })}
+      >
+        <List
+          sx={(theme) => ({
+            flexGrow: 1,
+            fontSize: "1rem" /* 16px */,
+            lineHeight: "1.5rem" /* 24px */,
+            [theme.breakpoints.up("md")]: {
+              gap: 6,
+            },
+            [theme.breakpoints.up("lg")]: {
+              gap: 20,
+              fontSize: "1.125rem" /* 18px */,
+              lineHeight: "1.75rem" /* 28px */,
+            },
+          })}
+          className="flex_center"
+          disablePadding
+        >
           {navLinks?.map((item, i) => (
-            <a
-              href={item.href}
+            <ListItem
+              disablePadding
               key={i}
-              className="font-montserrat text-slate-gray dark:text-dark-slate-gray transition duration-300 hover:text-coral-red dark:hover:text-coral-red"
+              sx={{
+                color: "secondary.main",
+                width: "fit-content",
+                transition: "0.3s",
+                "&:hover": {
+                  color: "primary.main",
+                },
+              }}
+              className="font-montserrat dark:text-dark-slate-gray transition duration-300 hover:text-coral-red dark:hover:text-coral-red"
             >
-              <li>{item.label}</li>
-            </a>
+              <ListItemButton href={item.href} sx={{ p: 0 }}>
+                {item.label}
+              </ListItemButton>
+            </ListItem>
           ))}
-        </ul>
-        <div className="flex_center gap-4">
+        </List>
+        <Stack className="flex_center" gap={4}>
           {user ? (
             <Button label="Log out" semibold onClick={googleLogOut} />
           ) : (
             <Button label="Log in" semibold onClick={googleLogin} />
           )}
-        </div>
-      </nav>
-      <div className="flex justify-center items-center">
+        </Stack>
+      </Box>
+      <Stack direction="row" className="flex_center">
         <ThemeButton />
         <HamburgerButton navOpen={navOpen} setnavOpen={setnavOpen} />
-      </div>
-      <nav
+      </Stack>
+      {/* <nav
         className={`md:hidden absolute transition duration-300 z-20 ${
           navOpen ? "top-full opacity-1" : "-top-[300%] opacity-0"
         } w-full bg-modal-color p-2 rounded`}
@@ -134,8 +193,8 @@ const NavBar = () => {
             Log in
           </button>
         )}
-      </nav>
-    </header>
+      </nav> */}
+    </AppBar>
   );
 };
 

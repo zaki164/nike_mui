@@ -31,6 +31,8 @@ export const Theme = createTheme({
       md: 768,
       lg: 1024,
       xl: 1280,
+      "2xl": 1536,
     },
   },
+  spacing: (factor) => `${0.25 * factor}rem`,
 });

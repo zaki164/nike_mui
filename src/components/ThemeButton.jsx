@@ -1,28 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 import { themeOption } from "../constants";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
+import { IconButton, Menu, MenuItem } from "@mui/material";
 
 const ThemeButton = () => {
-  const [themeOptionOpen, setThemeOptionOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
   const [theme, setTheme] = useState("");
   const themeRef = useRef();
 
   // start handle show options
-  const stopPropa = (e) => {
-    e.stopPropagation();
+  const handleThemeIconClick = (event) => {
+    setAnchorEl(event.currentTarget);
   };
-  const handleThemeIconClick = (e) => {
-    stopPropa(e);
-    setThemeOptionOpen(!themeOptionOpen);
+  const handleClose = (option) => {
+    setTheme(option);
+    setAnchorEl(null);
   };
-
-  useEffect(() => {
-    document.addEventListener("click", (e) => {
-      if (e.target !== themeRef && themeOptionOpen) {
-        setThemeOptionOpen(false);
-      }
-    });
-  }, [themeOptionOpen]);
   // end handle show options
 
   // start handle change theme
@@ -74,34 +68,56 @@ const ThemeButton = () => {
 
   return (
     <>
-      <span
-        className="cursor-pointer text-coral-red mx-6"
+      <IconButton
+        sx={{
+          mx: 6,
+          color: "primary.main",
+        }}
         onClick={handleThemeIconClick}
         ref={themeRef}
       >
-        <Brightness4Icon className="w-7 h-7" />
-      </span>
-      <div
-        className={`absolute transition duration-300 z-20 ${
-          themeOptionOpen ? "top-full opacity-1" : "-top-[300%] opacity-0"
-        } right-0 bg-modal-color rounded-xl overflow-hidden w-full md:w-60`}
+        <Brightness4Icon sx={{ width: "1.75rem", height: "1.75rem" }} />
+      </IconButton>
+      <Menu
+        anchorEl={anchorEl}
+        open={open}
+        onClose={() => setAnchorEl(null)}
+        disableScrollLock
+        sx={{
+          "& .MuiPaper-root": {
+            bgcolor: "modalColor.main",
+            overflow: "auto",
+            borderRadius: 3,
+            minWidth: {
+              xs: "100%",
+              md: "13rem",
+            },
+          },
+        }}
       >
-        <ul className="flex flex-col items-start justify-center">
-          {themeOption.map((item, i) => (
-            <li
-              key={i}
-              className={`w-full cursor-pointer p-4 text-white transition-all duration-300 ${
-                item.option === theme
-                  ? "bg-coral-red"
-                  : "hover:bg-slate-gray hover:pl-8"
-              }`}
-              onClick={() => setTheme(item.option)}
-            >
-              {item.title}
-            </li>
-          ))}
-        </ul>
-      </div>
+        {themeOption.map((item, i) => (
+          <MenuItem
+            key={i}
+            onClick={() => handleClose(item.option)}
+            selected={item.option === theme}
+            sx={{
+              color: "white",
+              transition: "0.3s",
+              p: 3,
+              pl: 5,
+              "&:hover": {
+                pl: 8,
+                bgcolor: "secondary.main",
+              },
+              "&.Mui-selected ": {
+                bgcolor: "primary.main",
+              },
+            }}
+          >
+            {item.title}
+          </MenuItem>
+        ))}
+      </Menu>
     </>
   );
 };

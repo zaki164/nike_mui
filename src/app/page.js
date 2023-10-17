@@ -11,15 +11,28 @@ import {
   Subscribe,
   SuperQuality,
 } from "../sections";
-import { ThemeProvider } from "@mui/material";
+import { Box, Container, ThemeProvider } from "@mui/material";
 import { Theme } from "@/config/theme";
 
 export default function Home() {
   return (
     <GoogleOAuthProvider clientId="630251820110-g57glv47bvpqafbga0jdr1kpi9b728pj.apps.googleusercontent.com">
       <ThemeProvider theme={Theme}>
-        <main>
-          <div className="custom-container">
+        <Box component="main">
+          <Container
+            sx={{
+              maxWidth: "80% !important",
+              width: {
+                xs: "90%",
+                sm: "600px",
+                md: "740px",
+                lg: "1000px",
+                xl: "1200px",
+                "2xl": "78%",
+              },
+              position: "relative",
+            }}
+          >
             <NavBar />
             <Hero />
             <PopularProducts />
@@ -28,9 +41,9 @@ export default function Home() {
             <SpecialOffer />
             <CustomerReviews />
             <Subscribe />
-          </div>
+          </Container>
           <Footer />
-        </main>
+        </Box>
       </ThemeProvider>
     </GoogleOAuthProvider>
   );

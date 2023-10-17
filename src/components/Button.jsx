@@ -1,3 +1,4 @@
+import MuiButton from "@mui/material/Button";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -17,24 +18,33 @@ const Button = ({
     onClick ? onClick() : href === "/" ? window.location.reload() : route(href);
   };
   return (
-    <button
-      className={`flex_center rounded-full py-2 md:py-3 px-4 md:px-6 gap-3 md:gap-6 w-fit
-      ${backgroundColor ? backgroundColor : "bg-animation"}
-      ${textColor ? textColor : "text-white"}
-      ${fullWidth && "w-full"}
-      ${semibold && "font-semibold"}
-      ${borderColor && `border-2 ${borderColor}`}`}
+    <MuiButton
+      sx={(theme) => ({
+        borderRadius: "9999px",
+        py: 2,
+        px: 4,
+        gap: 3,
+        width: fullWidth ? "100%" : "fit-content",
+        bgcolor: backgroundColor && backgroundColor,
+        color: textColor ? textColor : "white",
+        fontWeight: semibold && 600,
+        border: borderColor && `2px solid ${borderColor}`,
+        textTransform: "none",
+        [theme.breakpoints.up("md")]: {
+          py: 3,
+          px: 6,
+          gap: 6,
+        },
+      })}
+      className={`flex_center
+      ${backgroundColor ? backgroundColor : "bg-animation"}`}
       onClick={handleClick}
     >
       {label}{" "}
       {iconURL && (
-        <Image
-          src={iconURL}
-          alt="button"
-          className="bg-white rounded-full w-5 h-5"
-        />
+        <Image src={iconURL} alt="button" width="1.25rem" height="1.25rem" />
       )}
-    </button>
+    </MuiButton>
   );
 };
 

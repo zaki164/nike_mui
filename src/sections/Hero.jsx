@@ -5,14 +5,16 @@ import { Button, ShoeCard } from "../components";
 import { bigShoe1 } from "../assets/images";
 import { arrowRight } from "../assets/icons";
 import Image from "next/image";
+import { Box } from "@mui/material";
 
 const Hero = () => {
   const [bigShoeImg, setBigShoeImg] = useState(bigShoe1);
 
   return (
-    <section
+    <Box
       id="home"
       className="w-full flex xl:flex-row flex-col justify-between min-h-screen gap-10"
+      pt={90}
     >
       {/* left section */}
       <div className="relative xl:w-2/5 flex flex-col justify-center items-start w-full pt-28">
@@ -59,7 +61,7 @@ const Hero = () => {
           ))}
         </div>
       </div>
-    </section>
+    </Box>
   );
 };
 
