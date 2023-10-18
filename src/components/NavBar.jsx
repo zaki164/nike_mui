@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { headerLogo } from "../assets/images";
 import { navLinks } from "../constants";
 import Button from "./Button";
@@ -19,15 +19,14 @@ import {
   Menu,
   MenuItem,
   Stack,
-  Toolbar,
 } from "@mui/material";
 // import FacebookLogin from "@greatsumini/react-facebook-login";
 
 const NavBar = () => {
-  // const [navOpen, setnavOpen] = useState(false);
   const [user, setUser] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  const navRef = useRef();
 
   //   <FacebookLogin
   //   appId="808830491246849"
@@ -89,6 +88,7 @@ const NavBar = () => {
 
   return (
     <AppBar
+      ref={navRef}
       elevation={0}
       sx={{
         bgcolor: "transparent",
@@ -160,24 +160,26 @@ const NavBar = () => {
           )}
         </Stack>
       </Box>
-      <Stack direction="row" className="flex_center">
+      <Stack className="flex_center">
         <ThemeButton />
-        <HamburgerButton setAnchorEl={setAnchorEl} />
+        <HamburgerButton navRef={navRef} setAnchorEl={setAnchorEl} />
       </Stack>
       <Menu
         anchorEl={anchorEl}
         open={open}
         onClose={() => setAnchorEl(null)}
         disableScrollLock
+        className="flex_center"
         sx={{
-          // p: 2,
           "& .MuiPaper-root": {
+            // mt: 5,
+            // mx: 10,
             bgcolor: "modalColor.main",
             borderRadius: 3,
-            // left: "0 !important",
-            minWidth: {
-              xs: "90%",
-              md: "13rem",
+            // left: "20px !important",
+            width: "100%",
+            display: {
+              md: "none",
             },
           },
         }}

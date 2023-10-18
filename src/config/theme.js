@@ -34,5 +34,23 @@ export const Theme = createTheme({
       "2xl": 1536,
     },
   },
+  components: {
+    MuiStack: {
+      defaultProps: {
+        flexDirection: "row",
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          fontSize: "inherit",
+          fontWeight: "inherit",
+          lineHeight: "inherit",
+          color: "inherit",
+          fontFamily: "inherit",
+        },
+      },
+    },
+  },
   spacing: (factor) => `${0.25 * factor}rem`,
 });

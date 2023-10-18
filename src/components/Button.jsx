@@ -30,6 +30,7 @@ const Button = ({
         fontWeight: semibold && 600,
         border: borderColor && `2px solid ${borderColor}`,
         textTransform: "none",
+        fontFamily: "inherit",
         [theme.breakpoints.up("md")]: {
           py: 3,
           px: 6,

@@ -1,28 +1,7 @@
-import { useEffect, useRef } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { IconButton } from "@mui/material";
 
-const HamburgerButton = ({ setAnchorEl }) => {
-  // const NavIconRef = useRef();
-
-  // // start handle show Nav
-  // const stopPropa = (e) => {
-  //   e.stopPropagation();
-  // };
-  // const handleNavIconClick = (event) => {
-  // stopPropa(e);
-  // setnavOpen(!navOpen);
-  // };
-
-  // useEffect(() => {
-  //   document.addEventListener("click", (e) => {
-  //     if (e.target !== NavIconRef && navOpen) {
-  //       setnavOpen(false);
-  //     }
-  //   });
-  // }, [navOpen]);
-  // // end handle show Nav
-
+const HamburgerButton = ({ navRef, setAnchorEl }) => {
   return (
     <IconButton
       sx={(theme) => ({
@@ -31,8 +10,8 @@ const HamburgerButton = ({ setAnchorEl }) => {
           display: "none",
         },
       })}
-      onClick={(event) => setAnchorEl(event.currentTarget)}
-      // ref={NavIconRef}
+      onClick={() => setAnchorEl(navRef.current)}
+      // onClick={(event) => setAnchorEl(event.currentTarget)}
     >
       <MenuIcon
         sx={{

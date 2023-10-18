@@ -84,17 +84,18 @@ const ThemeButton = () => {
         open={open}
         onClose={() => setAnchorEl(null)}
         disableScrollLock
-        sx={{
+        sx={(theme) => ({
           "& .MuiPaper-root": {
             bgcolor: "modalColor.main",
             borderRadius: 3,
-            // left: "0 !important",
-            minWidth: {
-              xs: "90%",
-              md: "13rem",
+            mt: 5,
+            width: "13rem",
+            [theme.breakpoints.down("md")]: {
+              left: "20px !important",
+              width: "42%",
             },
           },
-        }}
+        })}
       >
         {themeOption.map((item, i) => (
           <MenuItem
