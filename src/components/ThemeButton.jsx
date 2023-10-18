@@ -70,6 +70,7 @@ const ThemeButton = () => {
     <>
       <IconButton
         sx={{
+          p: 0,
           mx: 6,
           color: "primary.main",
         }}
@@ -86,10 +87,10 @@ const ThemeButton = () => {
         sx={{
           "& .MuiPaper-root": {
             bgcolor: "modalColor.main",
-            overflow: "auto",
             borderRadius: 3,
+            // left: "0 !important",
             minWidth: {
-              xs: "100%",
+              xs: "90%",
               md: "13rem",
             },
           },

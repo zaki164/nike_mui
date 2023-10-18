@@ -1,37 +1,53 @@
-"use client";
-
 import { useEffect, useRef } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
+import { IconButton } from "@mui/material";
 
-const HamburgerButton = ({ navOpen, setnavOpen }) => {
-  const NavIconRef = useRef();
+const HamburgerButton = ({ setAnchorEl }) => {
+  // const NavIconRef = useRef();
 
-  // start handle show Nav
-  const stopPropa = (e) => {
-    e.stopPropagation();
-  };
-  const handleNavIconClick = (e) => {
-    stopPropa(e);
-    setnavOpen(!navOpen);
-  };
+  // // start handle show Nav
+  // const stopPropa = (e) => {
+  //   e.stopPropagation();
+  // };
+  // const handleNavIconClick = (event) => {
+  // stopPropa(e);
+  // setnavOpen(!navOpen);
+  // };
 
-  useEffect(() => {
-    document.addEventListener("click", (e) => {
-      if (e.target !== NavIconRef && navOpen) {
-        setnavOpen(false);
-      }
-    });
-  }, [navOpen]);
-  // end handle show Nav
+  // useEffect(() => {
+  //   document.addEventListener("click", (e) => {
+  //     if (e.target !== NavIconRef && navOpen) {
+  //       setnavOpen(false);
+  //     }
+  //   });
+  // }, [navOpen]);
+  // // end handle show Nav
 
   return (
-    <span
-      className="md:hidden cursor-pointer"
-      onClick={handleNavIconClick}
-      ref={NavIconRef}
+    <IconButton
+      sx={(theme) => ({
+        p: 0,
+        [theme.breakpoints.up("md")]: {
+          display: "none",
+        },
+      })}
+      onClick={(event) => setAnchorEl(event.currentTarget)}
+      // ref={NavIconRef}
     >
-      <MenuIcon className="w-7 h-7 sm:w-9 sm:h-9" />
-    </span>
+      <MenuIcon
+        sx={{
+          color: "white",
+          width: {
+            xs: "1.75rem",
+            sm: "2.25rem",
+          },
+          height: {
+            xs: "1.75rem",
+            sm: "2.25rem",
+          },
+        }}
+      />
+    </IconButton>
   );
 };
 

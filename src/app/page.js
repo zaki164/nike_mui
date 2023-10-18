@@ -21,7 +21,10 @@ export default function Home() {
         <Box component="main">
           <Container
             sx={{
-              maxWidth: "80% !important",
+              maxWidth: {
+                xs: "90% !important",
+                md: "80% !important",
+              },
               width: {
                 xs: "90%",
                 sm: "600px",

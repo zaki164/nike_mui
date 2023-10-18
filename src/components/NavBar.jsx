@@ -16,16 +16,18 @@ import {
   List,
   ListItem,
   ListItemButton,
-  ListItemText,
   Menu,
+  MenuItem,
   Stack,
   Toolbar,
 } from "@mui/material";
 // import FacebookLogin from "@greatsumini/react-facebook-login";
 
 const NavBar = () => {
-  const [navOpen, setnavOpen] = useState(false);
+  // const [navOpen, setnavOpen] = useState(false);
   const [user, setUser] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
 
   //   <FacebookLogin
   //   appId="808830491246849"
@@ -160,40 +162,68 @@ const NavBar = () => {
       </Box>
       <Stack direction="row" className="flex_center">
         <ThemeButton />
-        <HamburgerButton navOpen={navOpen} setnavOpen={setnavOpen} />
+        <HamburgerButton setAnchorEl={setAnchorEl} />
       </Stack>
-      {/* <nav
-        className={`md:hidden absolute transition duration-300 z-20 ${
-          navOpen ? "top-full opacity-1" : "-top-[300%] opacity-0"
-        } w-full bg-modal-color p-2 rounded`}
+      <Menu
+        anchorEl={anchorEl}
+        open={open}
+        onClose={() => setAnchorEl(null)}
+        disableScrollLock
+        sx={{
+          // p: 2,
+          "& .MuiPaper-root": {
+            bgcolor: "modalColor.main",
+            borderRadius: 3,
+            // left: "0 !important",
+            minWidth: {
+              xs: "90%",
+              md: "13rem",
+            },
+          },
+        }}
       >
-        <ul className="flex flex-col text-base">
-          {navLinks?.map((item, i) => (
-            <a
-              href={item.href}
-              key={i}
-              className="font-montserrat p-2 text-white-400 transition-all duration-300 hover:text-coral-red hover:pl-4"
-            >
-              <li>{item.label}</li>
-            </a>
-          ))}
-        </ul>
-        {user ? (
-          <button
-            onClick={() => googleLogOut()}
-            className="font-semibold p-2 text-lg lg:text-xl font-montserrat transition-all duration-300 text-coral-red hover:pl-4"
+        {navLinks?.map((item, i) => (
+          <MenuItem
+            href={item.href}
+            component="a"
+            key={i}
+            onClick={() => setAnchorEl(null)}
+            className="font-montserrat"
+            sx={{
+              color: "whiteSlate.main",
+              transition: "0.3s",
+              p: 3,
+              "&:hover": {
+                pl: 6,
+                bgcolor: "secondary.main",
+                color: "primary.main",
+              },
+            }}
           >
-            Log out
-          </button>
-        ) : (
-          <button
-            onClick={() => googleLogin()}
-            className="font-semibold p-2 text-lg lg:text-xl text-white-400 font-montserrat transition-all duration-300 hover:text-coral-red hover:pl-4"
-          >
-            Log in
-          </button>
-        )}
-      </nav> */}
+            {item.label}
+          </MenuItem>
+        ))}
+        <MenuItem
+          component="a"
+          onClick={user ? googleLogOut : googleLogin}
+          className="font-montserrat"
+          sx={{
+            fontWeight: 600,
+            color: user ? "primary.main" : "whiteSlate.main",
+            transition: "0.3s",
+            p: 3,
+            fontSize: "1.125rem" /* 18px */,
+            lineHeight: "1.75rem" /* 28px */,
+            "&:hover": {
+              pl: 6,
+              bgcolor: "secondary.main",
+              color: "primary.main",
+            },
+          }}
+        >
+          {user ? "Log out" : "Log in"}
+        </MenuItem>
+      </Menu>
     </AppBar>
   );
 };
