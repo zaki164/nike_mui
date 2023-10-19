@@ -5,6 +5,7 @@ import { Stack } from "@mui/material";
 const Services = () => {
   return (
     <Stack
+      component="section"
       justifyContent={"center"}
       flexWrap={"wrap"}
       gap={9}

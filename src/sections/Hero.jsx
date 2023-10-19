@@ -11,6 +11,7 @@ const Hero = () => {
 
   return (
     <Stack
+      component="section"
       id="home"
       sx={{
         width: "100%",

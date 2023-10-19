@@ -7,6 +7,7 @@ import { Box, Stack, Typography } from "@mui/material";
 const SpecialOffer = () => {
   return (
     <Stack
+      component="section"
       sx={(theme) => ({
         gap: 10,
         [theme.breakpoints.down("xl")]: {

@@ -4,7 +4,7 @@ import { reviews } from "../constants";
 
 const CustomerReviews = () => {
   return (
-    <Box className="section_padding">
+    <Box className="section_padding" component="section">
       <Typography
         component={"h3"}
         fontWeight={700}
