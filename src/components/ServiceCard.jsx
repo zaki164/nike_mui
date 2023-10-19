@@ -1,18 +1,64 @@
+import { Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 
 const ServiceCard = ({ imgURL, label, subtext }) => {
   return (
-    <div className="w-full sm:w-1/3 rounded-[20px] drop-shadow-2xl  bg-white dark:bg-dark-background dark:drop-shadow-2xl-dark  px-7 py-12 md:px-10 md:py-16">
-      <div className="w-8 h-8 md:w-10 md:h-10 flex justify-center items-center bg-animation rounded-full">
+    <Box
+      sx={{
+        width: {
+          xs: "100%",
+          sm: "33.333333%",
+        },
+        borderRadius: "20px",
+        bgcolor: "white",
+        px: {
+          xs: 7,
+          md: 10,
+        },
+        py: {
+          xs: 12,
+          md: 16,
+        },
+      }}
+      className="serviceCard"
+    >
+      <Stack
+        borderRadius={"9999px"}
+        sx={{
+          width: {
+            width: "2rem" /* 32px */,
+            height: "2rem" /* 32px */,
+          },
+          height: {
+            width: "2.5rem" /* 40px */,
+            height: "2.5rem" /* 40px */,
+          },
+        }}
+        className="flex_center bg-animation"
+      >
         <Image src={imgURL} alt={label} />
-      </div>
-      <h3 className="mt-3 md:mt-5 text-2xl-3xl leading-normal font-bold">
+      </Stack>
+      <Typography
+        component={"h3"}
+        mt={{ xs: 3, md: 5 }}
+        fontWeight={700}
+        lineHeight={1.5}
+        className="text-2xl-3xl"
+      >
         {label}
-      </h3>
-      <p className="mt-1 md:mt-3 break-words info-text leading-normal">
+      </Typography>
+      <Typography
+        component={"p"}
+        mt={{ xs: 1, md: 3 }}
+        lineHeight={1.5}
+        sx={{
+          overflowWrap: "break-word",
+        }}
+        className="info-text"
+      >
         {subtext}
-      </p>
-    </div>
+      </Typography>
+    </Box>
   );
 };
 

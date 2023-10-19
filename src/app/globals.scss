@@ -48,6 +48,10 @@ html {
         background-color: var(--darkbg);
       }
     }
+    .serviceCard {
+      @extend .drop-shadow-2xl-dark;
+      background-color: var(--darkbg);
+    }
   }
 }
 
@@ -154,8 +158,8 @@ input::placeholder {
   }
 }
 .text-sm-base {
-  font-size: 0.75rem; /* 12px */
-  line-height: 1rem; /* 16px */
+  font-size: 0.875rem /* 14px */;
+  line-height: 1.25rem /* 20px */;
   @media (min-width: 768px) {
     font-size: 1rem; /* 16px */
     line-height: 1.5rem; /* 24px */
@@ -178,10 +182,10 @@ input::placeholder {
   }
 }
 .drop-shadow-2xl {
-  --tw-drop-shadow: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
+  box-shadow: 0 25px 25px rgb(0 0 0 / 0.15);
 }
 .drop-shadow-2xl-dark {
-  --tw-drop-shadow: drop-shadow(0 25px 25px rgb(150 150 150 / 0.15));
+  box-shadow: 0 25px 25px rgb(150 150 150 / 0.15);
 }
 .ImageSlide {
   object-fit: contain;
@@ -203,6 +207,9 @@ input::placeholder {
     width: 282px;
     height: 282px;
   }
+}
+.serviceCard {
+  @extend .drop-shadow-2xl;
 }
 
 @keyframes backgroundAnimation {
