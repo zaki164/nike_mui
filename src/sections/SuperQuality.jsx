@@ -70,6 +70,8 @@ const SuperQuality = () => {
           width={570}
           height={522}
           style={{
+            height: "auto",
+            maxWidth: "100%",
             objectFit: "contain",
           }}
         />

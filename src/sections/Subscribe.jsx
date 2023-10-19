@@ -1,4 +1,4 @@
-import { Input, Stack, TextField, Typography } from "@mui/material";
+import { Input, Stack, Typography } from "@mui/material";
 import { Button } from "../components";
 
 const Subscribe = () => {

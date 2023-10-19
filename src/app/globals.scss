@@ -204,16 +204,17 @@ input::placeholder {
   box-shadow: 0 25px 25px rgb(150 150 150 / 0.15);
 }
 .ImageSlide {
-  object-fit: contain;
-  width: 40px;
-  height: 40px;
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
+    width: 40px;
+    height: 40px;
+  }
+  @media (min-width: 641px) and (max-width: 768px) {
     width: 80px;
     height: 80px;
   }
   @media (min-width: 768px) {
-    width: 120px;
-    height: 100px;
+    max-width: 120px;
+    max-height: 100px;
   }
 }
 .imageProduct {

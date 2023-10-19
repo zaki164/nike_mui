@@ -186,7 +186,15 @@ const Hero = () => {
         }}
         className="flex_center"
       >
-        <Image src={bigShoeImg} alt="BigImgShoe" />
+        <Image
+          src={bigShoeImg}
+          alt="BigImgShoe"
+          style={{
+            height: "auto",
+            maxWidth: "100%",
+            objectFit: "contain",
+          }}
+        />
         <Stack
           className="flex_center"
           sx={(theme) => ({

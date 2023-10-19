@@ -25,21 +25,12 @@ const ShoeCard = ({ shoe, bigShoeImg, changeBigShoeImage }) => {
       <Image
         src={shoe?.thumbnail}
         alt="shoe thumbnail"
-        // style={{
-        //   objectFit: "contain",
-        //   width: "40px",
-        //   height: "40px",
-        //   "@media (max-width: 768px)": {
-        //     width: "80px",
-        //     height: "80px",
-        //   },
-        //   "@media (min-width: 768px)": {
-        //     maxWidth: "120px",
-        //     maxHeight: "100px",
-        //   },
-        // }}
+        style={{
+          // height: "auto",
+          maxWidth: "100%",
+          objectFit: "contain",
+        }}
         className="ImageSlide"
-        // className="object-contain max-sm:w-[40px] max-sm:h-[40px] max-md:w-[80px] max-md:h-[80px] md:max-w-[120px] md:max-h-[100px]"
       />
     </Stack>
   );
