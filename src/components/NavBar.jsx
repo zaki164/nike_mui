@@ -144,7 +144,7 @@ const NavBar = () => {
                   color: "primary.main",
                 },
               }}
-              className="font-montserrat dark:text-dark-slate-gray transition duration-300 hover:text-coral-red dark:hover:text-coral-red"
+              className="font-montserrat navItemDark"
             >
               <ListItemButton href={item.href} sx={{ p: 0 }}>
                 {item.label}

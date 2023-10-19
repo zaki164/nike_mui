@@ -87,11 +87,11 @@ const Hero = () => {
               pr: 10,
               [theme.breakpoints.up("xl")]: {
                 bgcolor: "darkbg.main",
-                // bgcolor: "white",
+                bgcolor: "white",
                 whiteSpace: "nowrap",
               },
             })}
-            className="xl:bg-white dark:xl:bg-dark-background"
+            className="bgDark"
           >
             The New Arrival
           </Typography>
@@ -128,7 +128,7 @@ const Hero = () => {
               maxWidth: "24rem" /* 384px */,
             },
           })}
-          className="font-montserrat dark:text-dark-slate-gray text-base-l"
+          className="font-montserrat slateColorDark text-base-l"
         >
           Discover stylish Nike arrivals, quality comfort, and innovation for
           your active life.

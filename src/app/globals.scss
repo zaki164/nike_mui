@@ -34,6 +34,20 @@ html {
     .info-text {
       color: var(--darkGray);
     }
+    .slateColorDark {
+      color: var(--darkGray);
+    }
+    .navItemDark {
+      @extend .slateColorDark;
+      &:hover {
+        color: var(--primary);
+      }
+    }
+    .bgDark {
+      @media (min-width: 1280px) {
+        background-color: var(--darkbg);
+      }
+    }
   }
 }
 
