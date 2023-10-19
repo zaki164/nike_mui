@@ -27,9 +27,9 @@ const Button = ({
         fontSize: "100%",
         width: fullWidth ? "100%" : "fit-content",
         bgcolor: backgroundColor && backgroundColor,
-        color: textColor ? textColor : "white",
+        color: !textColor && "white",
         fontWeight: semibold && 600,
-        border: borderColor && `2px solid ${borderColor}`,
+        border: borderColor && `2px solid`,
         textTransform: "none",
         fontFamily: "inherit",
         [theme.breakpoints.up("md")]: {
@@ -39,7 +39,9 @@ const Button = ({
         },
       })}
       className={`flex_center
-      ${backgroundColor ? backgroundColor : "bg-animation"}`}
+      ${backgroundColor ? backgroundColor : "bg-animation"}
+      ${textColor && textColor}
+      ${borderColor && borderColor}`}
       onClick={handleClick}
     >
       {label}{" "}

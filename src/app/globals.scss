@@ -52,6 +52,12 @@ html {
       @extend .drop-shadow-2xl-dark;
       background-color: var(--darkbg);
     }
+    .slateColor {
+      color: var(--darkGray);
+    }
+    .slateBorderColor {
+      border-color: var(--darkGray);
+    }
   }
 }
 
@@ -210,6 +216,12 @@ input::placeholder {
 }
 .serviceCard {
   @extend .drop-shadow-2xl;
+}
+.slateColor {
+  color: var(--secondary);
+}
+.slateBorderColor {
+  border-color: var(--secondary);
 }
 
 @keyframes backgroundAnimation {

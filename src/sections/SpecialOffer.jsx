@@ -2,46 +2,86 @@ import Image from "next/image";
 import { arrowRight } from "../assets/icons";
 import { offer } from "../assets/images";
 import { Button } from "../components";
+import { Box, Stack, Typography } from "@mui/material";
 
 const SpecialOffer = () => {
   return (
-    <section className="flex justify-between items-center max-xl:flex-col-reverse gap-10 section_padding">
-      <div className="flex-1">
+    <Stack
+      sx={(theme) => ({
+        gap: 10,
+        [theme.breakpoints.down("xl")]: {
+          flexDirection: "column-reverse",
+        },
+      })}
+      className="flex_between section_padding"
+    >
+      <Box flexGrow={1}>
         <Image
           src={offer}
           alt="Shoe Promotion"
           width={773}
           height={687}
-          className="object-contain w-full"
+          style={{
+            width: "100%",
+            height: "auto",
+            maxWidth: "100%",
+            objectFit: "contain",
+          }}
         />
-      </div>
-      <div className="flex flex-1 flex-col">
-        <h2 className="text-3xl-4xl font-bold">
-          <span className="text-animation">Special </span>
+      </Box>
+      <Stack flexDirection={"column"} flexGrow={1}>
+        <Typography component={"h2"} fontWeight={700} className="text-3xl-4xl">
+          <Typography component={"span"} className="text-animation">
+            Special{" "}
+          </Typography>
           Offer
-        </h2>
-        <p className="mt-2 md:mt-4 info-text">
+        </Typography>
+        <Typography
+          component={"p"}
+          mt={{
+            xs: 2,
+            md: 4,
+          }}
+          className="info-text"
+        >
           Embark on a shopping journey that redefines your experience with
           unbeatable deals. From premier selections to incredible savings, we
           offer unparalleled value that sets us apart.
-        </p>
-        <p className="mt-3 md:mt-6 info-text">
+        </Typography>
+        <Typography
+          component={"p"}
+          mt={{
+            xs: 3,
+            md: 6,
+          }}
+          className="info-text"
+        >
           Navigate a realm of possibilities designed to fulfill your unique
           desires, surpassing the loftiest expectations. Your journey with us is
           nothing short of exceptional.
-        </p>
-        <div className="mt-6 md:mt-11 flex flex-wrap gap-2 md:gap-4">
+        </Typography>
+        <Stack
+          flexWrap={"wrap"}
+          mt={{
+            xs: 6,
+            md: 11,
+          }}
+          gap={{
+            xs: 2,
+            md: 4,
+          }}
+        >
           <Button label="Shop now" iconURL={arrowRight} href={"/"} />
           <Button
             label="Learn more"
             backgroundColor="transparent"
-            borderColor="border-slate-gray dark:border-dark-slate-gray"
-            textColor="text-slate-gray dark:text-dark-slate-gray"
+            borderColor="slateBorderColor"
+            textColor="slateColor"
             href={"/"}
           />
-        </div>
-      </div>
-    </section>
+        </Stack>
+      </Stack>
+    </Stack>
   );
 };
 
