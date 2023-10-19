@@ -24,6 +24,7 @@ const Button = ({
         py: 2,
         px: 4,
         gap: 3,
+        fontSize: "100%",
         width: fullWidth ? "100%" : "fit-content",
         bgcolor: backgroundColor && backgroundColor,
         color: textColor ? textColor : "white",

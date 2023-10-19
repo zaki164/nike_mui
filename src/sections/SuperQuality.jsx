@@ -1,42 +1,80 @@
 import Image from "next/image";
 import { shoe8 } from "../assets/images";
 import { Button } from "../components";
+import { Box, Stack, Typography } from "@mui/material";
 
 const SuperQuality = () => {
   return (
-    <section
+    <Stack
       id="about-us"
-      className="flex justify-between items-center max-lg:flex-col gap-10 w-full section_padding"
+      sx={(theme) => ({
+        width: "100%",
+        gap: 10,
+        [theme.breakpoints.down("lg")]: {
+          flexDirection: "column",
+        },
+      })}
+      className="flex_between section_padding"
     >
-      <div className="flex flex-1 flex-col">
-        <h2 className="capitalize text-3xl-4xl lg:max-w-lg font-bold">
+      <Stack flexDirection={"column"} flexGrow={1}>
+        <Typography
+          component={"h2"}
+          fontWeight={700}
+          maxWidth={{
+            lg: "32rem",
+          }}
+          textTransform={"capitalize"}
+          className="text-3xl-4xl"
+        >
           We Provide You
-          <span className="text-animation"> Super </span>
-          <span className="text-animation">Quality </span> Shoes
-        </h2>
-        <p className="mt-2 md:mt-4 lg:max-w-lg info-text">
+          <Typography component={"span"} className="text-animation">
+            {" "}
+            Super{" "}
+          </Typography>
+          <Typography component={"span"} className="text-animation">
+            Quality{" "}
+          </Typography>{" "}
+          Shoes
+        </Typography>
+        <Typography
+          component={"p"}
+          mt={{ xs: 2, md: 4 }}
+          maxWidth={{
+            lg: "32rem",
+          }}
+          className="info-text"
+        >
           Ensuring premium comfort and style, our meticulously crafted footwear
           is designed to elevate your experience, providing you with unmatched
           quality, innovation, and a touch of elegance.
-        </p>
-        <p className="mt-4 md:mt-6 lg:max-w-lg info-text">
+        </Typography>
+        <Typography
+          component={"p"}
+          mt={{ xs: 4, md: 6 }}
+          maxWidth={{
+            lg: "32rem",
+          }}
+          className="info-text"
+        >
           Our dedication to detail and excellence ensures your satisfaction
-        </p>
-        <div className="mt-7 md:mt-11">
+        </Typography>
+        <Box mt={{ xs: 7, md: 11 }}>
           <Button label="View details" href={"/"} />
-        </div>
-      </div>
+        </Box>
+      </Stack>
 
-      <div className="flex-1 flex justify-center items-center">
+      <Stack className="flex_center" flexGrow={1}>
         <Image
           src={shoe8}
           alt="product detail"
           width={570}
           height={522}
-          className="object-contain"
+          style={{
+            objectFit: "contain",
+          }}
         />
-      </div>
-    </section>
+      </Stack>
+    </Stack>
   );
 };
 
