@@ -1,24 +1,84 @@
+import { Input, Stack, TextField, Typography } from "@mui/material";
 import { Button } from "../components";
 
 const Subscribe = () => {
   return (
-    <section
+    <Stack
       id="contact-us"
-      className="section_padding flex items-center flex-col gap-10"
+      alignItems={"center"}
+      flexDirection={"column"}
+      gap={10}
+      className="section_padding"
     >
-      <h3 className="text-2xl-3xl leading-[68px] text-center max-md:max-w-sm font-bold">
+      <Typography
+        component={"h3"}
+        lineHeight={"68px"}
+        textAlign={"center"}
+        fontWeight={700}
+        sx={(theme) => ({
+          [theme.breakpoints.down("md")]: {
+            maxWidth: "24rem",
+          },
+        })}
+        className="text-2xl-3xl"
+      >
         Sign Up for
-        <span className="text-animation"> Updates </span>& Newsletter
-      </h3>
-      <div className="w-[80%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[40%] flex justify-between items-center max-sm:flex-col gap-5 pl-6 p-2.5 sm:border sm:border-slate-gray dark:sm:border-dark-slate-gray rounded-full">
-        <input
+        <Typography component={"span"} className="text-animation">
+          {" "}
+          Updates{" "}
+        </Typography>
+        & Newsletter
+      </Typography>
+      <Stack
+        sx={(theme) => ({
+          width: "80%",
+          gap: 5,
+          p: 2.5,
+          pl: 6,
+          borderRadius: "9999px",
+          maxWidth: {
+            md: "70%",
+            lg: "60%",
+            xl: "40%",
+          },
+          [theme.breakpoints.down("sm")]: {
+            flexDirection: "column",
+          },
+          [theme.breakpoints.up("sm")]: {
+            border: "1px solid",
+            borderColor: "secondary.main",
+          },
+        })}
+        className="flex_between subscribeSection"
+      >
+        <Input
           type="email"
           placeholder="subscribe@nike.com"
-          className="flex-1 bg-transparent focus:outline-none text-slate-gray dark:text-dark-slate-gray max-sm:pl-5 max-sm:p-2.5 max-sm:border max-sm:border-slate-gray dark:max-sm:border-dark-slate-gray max-sm:rounded-full"
+          sx={(theme) => ({
+            flexGrow: 1,
+            bgcolor: "transparent",
+            "&:focus": {
+              outline: "none",
+            },
+            "&::before": {
+              display: "none",
+            },
+            "&::after": {
+              display: "none",
+            },
+            [theme.breakpoints.down("sm")]: {
+              pl: 5,
+              p: 2.5,
+              border: "1px solid",
+              borderColor: "secondary.main",
+              borderRadius: "9999px",
+            },
+          })}
+          className="slateColor subscribeInput"
         />
         <Button label="Sign Up" href="/" />
-      </div>
-    </section>
+      </Stack>
+    </Stack>
   );
 };
 

@@ -58,6 +58,16 @@ html {
     .slateBorderColor {
       border-color: var(--darkGray);
     }
+    .subscribeSection {
+      @media (min-width: 640px) {
+        border-color: var(--darkGray);
+      }
+    }
+    .subscribeInput {
+      @media (max-width: 640px) {
+        border-color: var(--darkGray);
+      }
+    }
   }
 }
 
