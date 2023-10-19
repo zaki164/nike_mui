@@ -1,25 +1,69 @@
 import { products } from "../constants";
 import { PopularProductCard } from "../components";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 
 const PopularProducts = () => {
   return (
-    <section id="products" className="section_padding !pt-12 md:!pt-32">
-      <div className="flex flex-col justify-start gap-4 md:gap-6">
-        <h2 className="text-3xl-4xl font-bold">
-          Our <span className="text-animation"> Popular </span> Products
-        </h2>
-        <p className="lg:max-w-lg info-text">
+    <Box
+      component="section"
+      id="products"
+      sx={{
+        pt: {
+          xs: "3rem !important",
+          md: "8rem !important",
+        },
+      }}
+      className="section_padding"
+    >
+      <Stack
+        sx={{
+          flexDirection: "column",
+          justifyContent: "start",
+          gap: {
+            xs: 4,
+            md: 6,
+          },
+        }}
+      >
+        <Typography component="h2" className="text-3xl-4xl" fontWeight={700}>
+          Our{" "}
+          <Typography component={"span"} className="text-animation">
+            {" "}
+            Popular{" "}
+          </Typography>{" "}
+          Products
+        </Typography>
+        <Typography
+          component={"p"}
+          sx={{
+            maxWidth: {
+              lg: "32rem" /* 512px */,
+            },
+          }}
+          className="info-text"
+        >
           Experience top-notch quality and style with our sought-after
           selections. Discover a world of comfort, design, and value
-        </p>
-      </div>
+        </Typography>
+      </Stack>
 
-      <div className="mt-8 md:mt-12 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 sm:gap-6 gap-14">
+      <Grid
+        container
+        mt={{
+          xs: 8,
+          md: 12,
+        }}
+        gap={{
+          xs: 14,
+          sm: 6,
+        }}
+        columns={{ xs: 1, sm: 2, md: 13, lg: 4 }}
+      >
         {products.map((product) => (
           <PopularProductCard key={product.name} {...product} />
         ))}
-      </div>
-    </section>
+      </Grid>
+    </Box>
   );
 };
 

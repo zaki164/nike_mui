@@ -173,14 +173,13 @@ input::placeholder {
   padding-top: 2rem;
   padding-bottom: 2rem;
   @media (min-width: 768px) {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 }
 .drop-shadow-2xl {
   --tw-drop-shadow: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
 }
-
 .drop-shadow-2xl-dark {
   --tw-drop-shadow: drop-shadow(0 25px 25px rgb(150 150 150 / 0.15));
 }
@@ -197,6 +196,15 @@ input::placeholder {
     height: 100px;
   }
 }
+.imageProduct {
+  width: 230px;
+  height: 230px;
+  @media (min-width: 768px) {
+    width: 282px;
+    height: 282px;
+  }
+}
+
 @keyframes backgroundAnimation {
   0% {
     background-position: 0% 100%;

@@ -1,25 +1,49 @@
 import Image from "next/image";
 import Star from "./Star";
+import { Grid, Stack, Typography } from "@mui/material";
 
 const PopularProductCard = ({ imgURL, name, price, rate }) => {
   return (
-    <div className="flex flex-1 flex-col w-full max-sm:w-full items-center">
-      <Image
-        src={imgURL}
-        alt={name}
-        className="w-[230px] h-[230px] md:w-[282px] md:h-[282px]"
-      />
-      <div className="mt-4 lg:mt-8 flex items-center gap-2.5">
+    <Grid
+      item
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+        flexGrow: 1,
+      }}
+    >
+      <Image src={imgURL} alt={name} className="imageProduct" />
+      <Stack mt={{ xs: 4, lg: 8 }} alignItems="center" gap={2.5}>
         <Star />
-        <p className="font-montserrat text-l-xl leading-normal text-slate-gray dark:text-dark-slate-gray">
+        <Typography
+          component={"p"}
+          lineHeight={1.5}
+          color="secondary.main"
+          className="font-montserrat text-l-xl slateColorDark"
+        >
           ({rate})
-        </p>
-      </div>
-      <h3 className="mt-2 text-xl-2xl leading-normal font-semibold">{name}</h3>
-      <p className="mt-2 font-semibold font-montserrat text-animation text-xl-2xl leading-normal">
+        </Typography>
+      </Stack>
+      <Typography
+        component={"h3"}
+        lineHeight={1.5}
+        fontWeight={600}
+        mt={2}
+        className="text-xl-2xl"
+      >
+        {name}
+      </Typography>
+      <Typography
+        component={"p"}
+        lineHeight={1.5}
+        fontWeight={600}
+        mt={2}
+        className="font-montserrat text-animation text-xl-2xl"
+      >
         {price}
-      </p>
-    </div>
+      </Typography>
+    </Grid>
   );
 };
 
