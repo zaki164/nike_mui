@@ -1,25 +1,55 @@
+import { Box, Stack, Typography } from "@mui/material";
 import { ReviewCard } from "../components";
 import { reviews } from "../constants";
 
 const CustomerReviews = () => {
   return (
-    <section className="section_padding">
-      <h3 className="text-center text-3xl-4xl font-bold">
+    <Box className="section_padding">
+      <Typography
+        component={"h3"}
+        fontWeight={700}
+        textAlign={"center"}
+        className="text-3xl-4xl"
+      >
         What Our
-        <span className="text-animation"> Customers </span>
+        <Typography component={"span"} className="text-animation">
+          {" "}
+          Customers{" "}
+        </Typography>
         Say?
-      </h3>
-      <p className="m-auto mt-4 max-w-lg text-center info-text">
+      </Typography>
+      <Typography
+        component={"p"}
+        mx={"auto"}
+        mt={4}
+        textAlign={"center"}
+        maxWidth={"32rem"}
+        className="info-text"
+      >
         Hear genuine stories from our satisfied customers about their
         exceptional experiences with us.
-      </p>
+      </Typography>
 
-      <div className="mt-12 md:mt-24 flex flex-1 justify-evenly items-center max-lg:flex-col gap-14">
+      <Stack
+        sx={(theme) => ({
+          mt: {
+            xs: 12,
+            md: 24,
+          },
+          flexGrow: 1,
+          justifyContent: "space-evenly",
+          alignItems: "center",
+          gap: 14,
+          [theme.breakpoints.down("lg")]: {
+            flexDirection: "column",
+          },
+        })}
+      >
         {reviews.map((review, index) => (
           <ReviewCard key={index} {...review} />
         ))}
-      </div>
-    </section>
+      </Stack>
+    </Box>
   );
 };
 

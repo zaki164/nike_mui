@@ -1,25 +1,42 @@
 import Image from "next/image";
 import Star from "./Star";
+import { Stack, Typography } from "@mui/material";
 
 const ReviewCard = ({ imgURL, customerName, rating, feedback }) => {
   return (
-    <div className="flex justify-center items-center flex-col">
-      <Image
-        src={imgURL}
-        alt="customer"
-        className="rounded-full object-cover w-[90px] h-[90px] md:w-[120px] md:h-[120px]"
-      />
-      <p className="mt-6 max-w-sm text-center info-text">{feedback}</p>
-      <div className="mt-3 flex justify-center items-center gap-2.5">
+    <Stack flexDirection={"column"} className="flex_center">
+      <Image src={imgURL} alt="customer" className="reviewCard" />
+      <Typography
+        component={"p"}
+        mt={6}
+        textAlign={"center"}
+        maxWidth="24rem"
+        className="info-text"
+      >
+        {feedback}
+      </Typography>
+      <Stack mt={3} gap={2.5}>
         <Star />
-        <p className="text-l-xl font-montserrat text-slate-gray dark:text-dark-slate-gray">
+        <Typography
+          component={"p"}
+          className="text-l-xl font-montserrat slateColor"
+        >
           ({rating})
-        </p>
-      </div>
-      <h3 className="mt-1 md:mt-2 text-xl-2xl text-center font-bold">
+        </Typography>
+      </Stack>
+      <Typography
+        component={"h3"}
+        mt={{
+          xs: 1,
+          md: 2,
+        }}
+        textAlign={"center"}
+        fontWeight={700}
+        className="text-xl-2xl"
+      >
         {customerName}
-      </h3>
-    </div>
+      </Typography>
+    </Stack>
   );
 };
 
