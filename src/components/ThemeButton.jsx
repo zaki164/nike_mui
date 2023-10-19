@@ -1,17 +1,22 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { themeOption } from "../constants";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { IconButton, Menu, MenuItem } from "@mui/material";
 
-const ThemeButton = () => {
+const ThemeButton = ({ navRef }) => {
   const [anchorEl, setAnchorEl] = useState(null);
+  console.log(anchorEl);
   const open = Boolean(anchorEl);
   const [theme, setTheme] = useState("");
-  const themeRef = useRef();
+  const [isMediaQueryMatch, setIsMediaQueryMatch] = useState(false);
+  const [hasDark, setHasDark] = useState(false);
 
   // start handle show options
   const handleThemeIconClick = (event) => {
-    setAnchorEl(event.currentTarget);
+    isMediaQueryMatch
+      ? setAnchorEl(event.currentTarget)
+      : setAnchorEl(navRef.current);
   };
   const handleClose = (option) => {
     setTheme(option);
@@ -36,9 +41,14 @@ const ThemeButton = () => {
         document.documentElement.classList.remove("dark");
       }
     }
+    document.documentElement.classList.contains("dark")
+      ? setHasDark(true)
+      : setHasDark(false);
   }, [theme]);
 
   useEffect(() => {
+    // handle darkMode
+
     function handleDarkModeChange(e) {
       if (!localStorage.getItem("theme")) {
         setTheme("device");
@@ -60,12 +70,24 @@ const ThemeButton = () => {
 
     darkModeMediaQuery.addEventListener("change", handleDarkModeChange);
 
+    // handle position of menu
+
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+    const handleMediaQueryChange = (e) => {
+      setIsMediaQueryMatch(e.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+    setIsMediaQueryMatch(mediaQuery.matches);
+
     return () => {
       darkModeMediaQuery.removeEventListener("change", handleDarkModeChange);
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
   // end handle change theme
-
   return (
     <>
       <IconButton
@@ -75,9 +97,12 @@ const ThemeButton = () => {
           color: "primary.main",
         }}
         onClick={handleThemeIconClick}
-        ref={themeRef}
       >
-        <Brightness4Icon sx={{ width: "1.75rem", height: "1.75rem" }} />
+        {hasDark ? (
+          <Brightness7Icon sx={{ width: "1.75rem", height: "1.75rem" }} />
+        ) : (
+          <Brightness4Icon sx={{ width: "1.75rem", height: "1.75rem" }} />
+        )}
       </IconButton>
       <Menu
         anchorEl={anchorEl}
@@ -91,8 +116,7 @@ const ThemeButton = () => {
             mt: 5,
             width: "13rem",
             [theme.breakpoints.down("md")]: {
-              left: "20px !important",
-              width: "42%",
+              width: "100%",
             },
           },
         })}

@@ -118,15 +118,18 @@ const NavBar = () => {
         <List
           sx={(theme) => ({
             flexGrow: 1,
-            fontSize: "1rem" /* 16px */,
-            lineHeight: "1.5rem" /* 24px */,
             [theme.breakpoints.up("md")]: {
-              gap: 6,
+              gap: 4,
+              fontSize: ".9rem",
+              lineHeight: "1.5rem" /* 24px */,
             },
             [theme.breakpoints.up("lg")]: {
-              gap: 20,
+              gap: 13,
               fontSize: "1.125rem" /* 18px */,
               lineHeight: "1.75rem" /* 28px */,
+            },
+            [theme.breakpoints.up("xl")]: {
+              gap: 20,
             },
           })}
           className="flex_center"
@@ -161,7 +164,7 @@ const NavBar = () => {
         </Stack>
       </Box>
       <Stack className="flex_center">
-        <ThemeButton />
+        <ThemeButton navRef={navRef} />
         <HamburgerButton navRef={navRef} setAnchorEl={setAnchorEl} />
       </Stack>
       <Menu
@@ -172,11 +175,8 @@ const NavBar = () => {
         className="flex_center"
         sx={{
           "& .MuiPaper-root": {
-            // mt: 5,
-            // mx: 10,
             bgcolor: "modalColor.main",
             borderRadius: 3,
-            // left: "20px !important",
             width: "100%",
             display: {
               md: "none",

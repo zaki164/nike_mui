@@ -2,74 +2,142 @@ import Image from "next/image";
 import { copyrightSign } from "../assets/icons";
 import { footerLogo } from "../assets/images";
 import { footerLinks, socialMedia } from "../constants";
-import { Typography } from "@mui/material";
+import { Box, List, ListItem, Stack, Typography } from "@mui/material";
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="section_padding bg-black px-9 md:px-12">
-      <div className="flex justify-between items-start gap-16 lg:gap-20 flex-wrap max-lg:flex-col">
-        <div className="flex flex-col lg:items-start">
-          <a href="/">
+    <Box bgcolor={"black"} px={{ xs: 9, md: 12 }} className="section_padding">
+      <Stack
+        justifyContent={"space-between"}
+        alignItems={"start"}
+        flexWrap={"wrap"}
+        gap={{ xs: 16, lg: 20 }}
+        sx={(theme) => ({
+          [theme.breakpoints.down("lg")]: {
+            flexDirection: "column",
+          },
+        })}
+      >
+        <Stack flexDirection={"column"} alignItems={{ lg: "start" }}>
+          <Link href="/">
             <Image src={footerLogo} alt="logo" width={150} height={46} />
-          </a>
+          </Link>
           <Typography
-            variant="body1"
+            component="p"
             color={"whiteSlate.main"}
-            className="mt-6 leading-7 info-text !text-white-400 sm:max-w-sm"
+            mt={6}
+            lineHeight="1.75rem"
+            maxWidth={{ sm: "24rem" }}
+            className="font-montserrat text-sm-base"
           >
             Get shoes ready for the new term at your nearest Nike store. Find
             Your perfect Size In Store. Get Rewards
           </Typography>
-          <div className="flex items-center gap-5 mt-6 md:mt-8">
+          <Stack alignItems={"center"} gap={5} mt={{ xs: 6, md: 8 }}>
             {socialMedia.map((icon) => (
-              <div
-                className="flex justify-center items-center w-12 h-12 bg-white rounded-full cursor-pointer"
+              <Stack
+                bgcolor={"white"}
+                borderRadius={"9999px"}
+                width={"3rem"}
+                height={"3rem"}
+                sx={{ cursor: "pointer" }}
+                className="flex_center"
                 key={icon.alt}
               >
                 <Image src={icon.src} alt={icon.alt} width={24} height={24} />
-              </div>
+              </Stack>
             ))}
-          </div>
-        </div>
+          </Stack>
+        </Stack>
 
-        <div className="flex flex-1 justify-between lg:gap-10 gap-16 flex-wrap">
+        <Stack
+          flexGrow={1}
+          justifyContent={"space-between"}
+          gap={{ xs: 16, lg: 10 }}
+          flexWrap={"wrap"}
+        >
           {footerLinks.map((section) => (
-            <div key={section.title}>
-              <h4 className="font-montserrat text-xl-2xl leading-normal font-medium mb-4 md:mb-6 text-white">
+            <Box key={section.title}>
+              <Typography
+                component={"h4"}
+                fontWeight={500}
+                lineHeight={1.5}
+                mb={{ xs: 4, md: 6 }}
+                color={"white"}
+                className="font-montserrat text-xl-2xl"
+              >
                 {section.title}
-              </h4>
-              <ul>
+              </Typography>
+              <List>
                 {section.links.map((link) => (
-                  <li
-                    className="mt-1 md:mt-3 font-montserrat text-sm-base leading-normal text-white-400 hover:text-slate-gray dark:hover:text-dark-slate-gray cursor-pointer"
+                  <ListItem
+                    sx={{
+                      mt: {
+                        xs: 1,
+                        md: 3,
+                      },
+                      lineHeight: 1.5,
+                      cursor: "pointer",
+                      color: "whiteSlate.main",
+                    }}
+                    className="font-montserrat text-sm-base footerItemhover"
                     key={link.name}
+                    disablePadding
+                    component="a"
+                    href={link.link}
                   >
-                    <a href={link.link}>{link.name}</a>
-                  </li>
+                    {link.name}
+                  </ListItem>
                 ))}
-              </ul>
-            </div>
+              </List>
+            </Box>
           ))}
-        </div>
-      </div>
+        </Stack>
+      </Stack>
 
-      <div className="flex justify-between info-text !text-white-400 mt-10 md:mt-24 max-sm:flex-col max-sm:items-center max-sm:gap-6">
-        <div className="flex flex-1 justify-start items-center gap-2 font-montserrat">
+      <Stack
+        sx={(theme) => ({
+          justifyContent: "space-between",
+          color: "whiteSlate.main",
+          mt: {
+            xs: 10,
+            md: 24,
+          },
+          [theme.breakpoints.down("sm")]: {
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 6,
+          },
+        })}
+        className="font-montserrat text-sm-base !text-white-400"
+      >
+        <Stack
+          flexGrow={1}
+          justifyContent={"start"}
+          alignItems={"center"}
+          gap={2}
+          className="font-montserrat"
+        >
           <Image
             src={copyrightSign}
             alt="copyright sign"
-            className="rounded-full w-3 h-3 md:w-5 md:h-5 bg-animation"
+            style={{
+              height: "auto",
+              maxWidth: "100%",
+              objectFit: "contain",
+            }}
+            className="copyRightImage bg-animation"
           />
-          <p>Copyright. All rights reserved.</p>
-        </div>
-        <a
-          className="font-montserrat transition duration-300 hover:text-coral-red dark:hover:text-coral-red"
-          href="/"
-        >
+          <Typography component={"p"}>
+            Copyright. All rights reserved.
+          </Typography>
+        </Stack>
+        <Link className="font-montserrat termsLink" href="/">
           Terms & Conditions
-        </a>
-      </div>
-    </footer>
+        </Link>
+      </Stack>
+    </Box>
   );
 };
 

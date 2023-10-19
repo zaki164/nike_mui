@@ -5,17 +5,16 @@ const HamburgerButton = ({ navRef, setAnchorEl }) => {
   return (
     <IconButton
       sx={(theme) => ({
+        color: "primary.main",
         p: 0,
         [theme.breakpoints.up("md")]: {
           display: "none",
         },
       })}
       onClick={() => setAnchorEl(navRef.current)}
-      // onClick={(event) => setAnchorEl(event.currentTarget)}
     >
       <MenuIcon
         sx={{
-          color: "white",
           width: {
             xs: "1.75rem",
             sm: "2.25rem",
