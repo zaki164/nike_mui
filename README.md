@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+![Nike](https://github.com/zaki164/nike_mui/assets/92805900/6b06c4e7-1604-47d5-869b-d23c0476fa8c)
+
 ## Getting Started
 
 First, run the development server:
