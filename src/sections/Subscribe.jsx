@@ -4,6 +4,7 @@ import { Button } from "../components";
 const Subscribe = () => {
   return (
     <Stack
+      data-aos={"fade-down"}
       component="section"
       id="contact-us"
       alignItems={"center"}

@@ -14,6 +14,7 @@ const PopularProducts = () => {
         },
       }}
       className="section_padding"
+      data-aos={"fade-left"}
     >
       <Stack
         sx={{

@@ -33,6 +33,7 @@ export default function Home() {
                 xl: "1200px",
                 "2xl": "78%",
               },
+              overflow: "hidden",
               position: "relative",
             }}
           >

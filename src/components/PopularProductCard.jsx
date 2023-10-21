@@ -13,7 +13,15 @@ const PopularProductCard = ({ imgURL, name, price, rate }) => {
         flexGrow: 1,
       }}
     >
-      <Image src={imgURL} alt={name} className="imageProduct" />
+      <Image
+        src={imgURL}
+        alt={name}
+        className="imageProduct"
+        style={{
+          height: "auto",
+          maxWidth: "100%",
+        }}
+      />
       <Stack mt={{ xs: 4, lg: 8 }} alignItems="center" gap={2.5}>
         <Star />
         <Typography

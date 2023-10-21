@@ -4,7 +4,7 @@ import { reviews } from "../constants";
 
 const CustomerReviews = () => {
   return (
-    <Box className="section_padding" component="section">
+    <Box className="section_padding" component="section" data-aos={"fade-up"}>
       <Typography
         component={"h3"}
         fontWeight={700}

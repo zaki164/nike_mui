@@ -39,8 +39,14 @@ const Footer = () => {
               <Stack
                 bgcolor={"white"}
                 borderRadius={"9999px"}
-                width={"3rem"}
-                height={"3rem"}
+                width={{
+                  xs: "2rem",
+                  sm: "3rem",
+                }}
+                height={{
+                  xs: "2rem",
+                  sm: "3rem",
+                }}
                 sx={{ cursor: "pointer" }}
                 className="flex_center"
                 key={icon.alt}

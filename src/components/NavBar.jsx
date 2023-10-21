@@ -101,7 +101,14 @@ const NavBar = () => {
       className="flex_between"
     >
       <Link href="/">
-        <Image src={headerLogo} alt="logo" />
+        <Image
+          src={headerLogo}
+          alt="logo"
+          style={{
+            height: "auto",
+            maxWidth: "100%",
+          }}
+        />
       </Link>
       <Box
         component="nav"

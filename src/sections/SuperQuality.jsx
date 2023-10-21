@@ -6,6 +6,7 @@ import { Box, Stack, Typography } from "@mui/material";
 const SuperQuality = () => {
   return (
     <Stack
+      data-aos={"fade-right"}
       component="section"
       id="about-us"
       sx={(theme) => ({

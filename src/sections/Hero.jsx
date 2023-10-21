@@ -64,12 +64,14 @@ const Hero = () => {
           component="h1"
           sx={(theme) => ({
             mt: 6,
-            fontSize: "3.75rem" /* 60px */,
             lineHeight: 1,
             fontWeight: 700,
+            lineHeight: "72px",
             [theme.breakpoints.down("sm")]: {
-              fontSize: "62px",
-              lineHeight: "72px",
+              fontSize: "51px",
+            },
+            [theme.breakpoints.up("sm")]: {
+              fontSize: "3.75rem" /* 60px */,
             },
             [theme.breakpoints.up("md")]: {
               mt: 10,
