@@ -6,7 +6,6 @@ import { IconButton, Menu, MenuItem } from "@mui/material";
 
 const ThemeButton = ({ navRef }) => {
   const [anchorEl, setAnchorEl] = useState(null);
-  console.log(anchorEl);
   const open = Boolean(anchorEl);
   const [theme, setTheme] = useState("");
   const [isMediaQueryMatch, setIsMediaQueryMatch] = useState(false);
