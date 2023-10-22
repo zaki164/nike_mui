@@ -5,7 +5,6 @@ import { headerLogo } from "../assets/images";
 import { navLinks } from "../constants";
 import Button from "./Button";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
-import Cookies from "js-cookie";
 import ThemeButton from "./ThemeButton";
 import HamburgerButton from "./HamburgerButton";
 import Link from "next/link";
@@ -20,6 +19,7 @@ import {
   MenuItem,
   Stack,
 } from "@mui/material";
+import { setCookie, deleteCookie, getCookie } from "cookies-next";
 // import FacebookLogin from "@greatsumini/react-facebook-login";
 
 const NavBar = () => {
@@ -67,7 +67,7 @@ const NavBar = () => {
   const googleLogin = useGoogleLogin({
     onSuccess: (credentialResponse) => {
       console.log(credentialResponse.access_token);
-      Cookies.set("nike", credentialResponse.access_token);
+      setCookie("nike", credentialResponse.access_token);
       setUser(true);
     },
     onError: () => {
@@ -77,13 +77,14 @@ const NavBar = () => {
 
   // google logout function
   const googleLogOut = () => {
-    Cookies.remove("nike");
+    deleteCookie("nike");
+
     setUser(false);
     googleLogout();
   };
 
   useEffect(() => {
-    Cookies.get("nike") ? setUser(true) : setUser(false);
+    getCookie("nike") ? setUser(true) : setUser(false);
   }, []);
 
   return (
