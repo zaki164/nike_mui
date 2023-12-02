@@ -32,7 +32,7 @@ const Footer = () => {
             className="font-montserrat text-sm-base"
           >
             Get shoes ready for the new term at your nearest Nike store. Find
-            Your perfect Size In Store. Get Rewards
+            your perfect Size In Store. Get Rewards
           </Typography>
           <Stack alignItems={"center"} gap={5} mt={{ xs: 6, md: 8 }}>
             {socialMedia.map((icon) => (
